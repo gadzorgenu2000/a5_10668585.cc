@@ -1,4 +1,5 @@
 #include<iostream>
+#include<fstream>
 #include<string>
 using namespace std;
 
@@ -15,10 +16,12 @@ struct Student {
 
 
 int main() {
+	// filestream
+	ofstream myfile ("hello.txt");
 	double average;
 	int sum_of_scores = 0;
 	int male_count=0, female_count=0;
-	int stud_len = 5;
+	int stud_len = 1;
 	Student ug_students[stud_len];
 	
 	//inputs
@@ -69,20 +72,20 @@ int main() {
 	//Outputs
 	cout << "\n\n Displaying Struct data\n\n";
 	for(int i=0; i<stud_len; i++) {
-		cout <<" Student name " << ug_students[i].firstname <<" ";
-		cout <<" Gender " << ug_students[i].gender <<" ";
-		cout <<" Age " << ug_students[i].age <<" ";
-		cout <<" Student ID " << ug_students[i].id <<" ";
-		cout <<" Score " << ug_students[i].score <<" ";
-		cout <<" Grade " << ug_students[i].grade <<" ";
-		cout << "\n\n";	
+		myfile <<" Student name " << ug_students[i].firstname <<" ";
+		myfile <<" Gender " << ug_students[i].gender <<" ";
+		myfile <<" Age " << ug_students[i].age <<" ";
+		myfile <<" Student ID " << ug_students[i].id <<" ";
+		myfile <<" Score " << ug_students[i].score <<" ";
+		myfile <<" Grade " << ug_students[i].grade <<" ";
+		myfile << "\n\n";	
 	}
 	
-	cout << "\n\n\n";
-	cout << "Average score = " << average << "\n";
-	cout << "Number of males = " << male_count << "\n";
-	cout << "Number of females = " << female_count << "\n";
-	cout << "\n\n";
+	myfile << "\n\n\n";
+	myfile << "Average score = " << average << "\n";
+	myfile << "Number of males = " << male_count << "\n";
+	myfile << "Number of females = " << female_count << "\n";
+	myfile << "\n\n";
 	
 	return 0;
 }
